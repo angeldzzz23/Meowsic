@@ -11,7 +11,7 @@ import lombok.*;
 
 @Entity
 @Table(
-        name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"spot_id"})}
+        name = "posts"
 )
 public class Post {
     @Id

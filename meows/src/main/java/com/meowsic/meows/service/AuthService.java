@@ -6,5 +6,5 @@ import com.meowsic.meows.payload.RegisterDto;
 public interface AuthService {
     String login(LoginDto loginDto);
 
-    String register(RegisterDto registerDto);
+//    String register(RegisterDto registerDto);
 }
