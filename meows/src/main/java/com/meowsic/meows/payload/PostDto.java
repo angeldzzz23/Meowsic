@@ -10,11 +10,10 @@ public class PostDto {
     private Long id;
 
     @NotEmpty
-    private Long spot_id;
+    private String spot_id;
 
     @NotEmpty
     @Size(min = 10, message = "Post description should have at least 10 characters")
     private String description;
-
 
 }

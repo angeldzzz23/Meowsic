@@ -21,7 +21,8 @@ public class Post {
     private Long id;
 
     @Column(name = "spot_id", nullable = false)
-    private Long spot_id;
+    private String spot_id;
+
     @Column(name = "description", nullable = true)
     private String description;
 }
