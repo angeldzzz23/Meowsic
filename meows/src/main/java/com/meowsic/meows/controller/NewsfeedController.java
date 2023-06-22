@@ -55,7 +55,7 @@ public class NewsfeedController {
 
         return new ResponseEntity<>("post has been deleted", HttpStatus.OK);
     }
-    
+
 
 
 
