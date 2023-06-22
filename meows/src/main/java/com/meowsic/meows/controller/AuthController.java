@@ -38,12 +38,8 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    // build regiuster rest api
-//    @PostMapping(value = {"/register", "/signup"})
-//    public ResponseEntity<String> register(@RequestBody RegisterDto registerDto) {
-//        String response = authService.register(registerDto);
-//        return new ResponseEntity<>(response, HttpStatus.CREATED);
-//    }
+
+
 
 
 }
