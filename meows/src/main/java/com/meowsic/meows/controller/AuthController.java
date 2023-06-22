@@ -2,6 +2,7 @@ package com.meowsic.meows.controller;
 
 import com.meowsic.meows.payload.JWTAuthResponse;
 import com.meowsic.meows.payload.LoginDto;
+import com.meowsic.meows.payload.RegisterDto;
 import com.meowsic.meows.service.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,12 @@ public class AuthController {
 
         return  ResponseEntity.ok(jwtAuthResponse);
 
+    }
+
+    @PostMapping(value = {"/register", "/signup"})
+    public ResponseEntity<String> register(@RequestBody RegisterDto registerDto) {
+        String response = authService.register(registerDto);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     // build regiuster rest api
