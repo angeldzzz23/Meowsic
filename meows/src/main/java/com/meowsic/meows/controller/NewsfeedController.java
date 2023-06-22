@@ -38,6 +38,11 @@ public class NewsfeedController {
         return newsfeedService.getAllPosts(pageNo, pageSize,sortBy, sortDir);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<PostDto> getPostById(@PathVariable("id") long id) {
+        return ResponseEntity.ok(newsfeedService.getPostById(id));
+    }
+
 
 
 

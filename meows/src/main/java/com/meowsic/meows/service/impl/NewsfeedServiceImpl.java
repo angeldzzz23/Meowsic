@@ -1,6 +1,7 @@
 package com.meowsic.meows.service.impl;
 
 import com.meowsic.meows.entity.Post;
+import com.meowsic.meows.exception.ResourceNotFoundException;
 import com.meowsic.meows.payload.PostDto;
 import com.meowsic.meows.payload.PostResponse;
 import com.meowsic.meows.repository.NewsfeedRepository;
@@ -60,6 +61,12 @@ public class NewsfeedServiceImpl implements NewsfeedService {
 
 
         return postResponse;
+    }
+
+    @Override
+    public PostDto getPostById(long id) {
+        Post post = newsfeedRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("post", "id", id));
+        return mapToDTO(post);
     }
 
     // mapping
