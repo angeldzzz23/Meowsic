@@ -50,9 +50,10 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((authorize) -> {
-                    authorize.requestMatchers(HttpMethod.GET, "/api/**").authenticated()
-                            .requestMatchers("/api/auth/**").permitAll()
-                            .anyRequest().authenticated();
+                    authorize.requestMatchers(HttpMethod.GET, "/api/newsfeed/**").authenticated();
+                    authorize.requestMatchers(HttpMethod.POST, "/api/newsfeed/**").authenticated();
+                    authorize.requestMatchers(HttpMethod.POST,"/api/auth/**").permitAll();
+
                 }).httpBasic(Customizer.withDefaults())
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(authenticationEntryPoint))
