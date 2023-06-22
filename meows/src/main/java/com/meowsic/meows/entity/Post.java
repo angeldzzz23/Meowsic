@@ -1,0 +1,27 @@
+package com.meowsic.meows.entity;
+
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+
+@Entity
+@Table(
+        name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"spot_id"})}
+)
+public class Post {
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    private Long id;
+
+    @Column(name = "spot_id", nullable = false)
+    private Long spot_id;
+    @Column(name = "description", nullable = true)
+    private String description;
+}
