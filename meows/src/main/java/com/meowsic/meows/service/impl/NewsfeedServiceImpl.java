@@ -69,6 +69,23 @@ public class NewsfeedServiceImpl implements NewsfeedService {
         return mapToDTO(post);
     }
 
+
+    @Override
+    public PostDto updatePost(PostDto postDto, long id) {
+        Post post = newsfeedRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("post", "id", id));
+        post.setSpot_id(postDto.getSpot_id());
+        post.setDescription(postDto.getDescription());
+        Post updatePost = newsfeedRepository.save(post);
+
+        return mapToDTO(updatePost);
+    }
+
+    @Override
+    public void deletePostById(long id) {
+        Post post = newsfeedRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("post", "id", id));
+        newsfeedRepository.delete(post);
+    }
+
     // mapping
     private  PostDto mapToDTO(Post post) {
         PostDto postDto = modelMapper.map(post, PostDto.class);

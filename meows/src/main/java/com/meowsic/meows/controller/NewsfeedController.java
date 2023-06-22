@@ -43,6 +43,23 @@ public class NewsfeedController {
         return ResponseEntity.ok(newsfeedService.getPostById(id));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<PostDto> updatePost(@Valid @RequestBody PostDto postDto, @PathVariable(name = "id") long id) {
+        PostDto postResponse = newsfeedService.updatePost(postDto, id);
+        return new ResponseEntity<>(postResponse, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePost(@PathVariable("id") long id) {
+        newsfeedService.deletePostById(id);
+
+        return new ResponseEntity<>("post has been deleted", HttpStatus.OK);
+    }
+    
+
+
+
+
 
 
 
